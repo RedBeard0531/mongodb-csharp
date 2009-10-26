@@ -15,6 +15,9 @@ namespace MongoDB.Driver.Bson
     {
     
         public static BsonType From(Object val){
+			if (val == null)
+				return new BsonNull();
+			
             Type t = val.GetType();
             //special case enums
             if(val is Enum){
